@@ -1,0 +1,49 @@
+/*
+ * Chapter 2 Car Class by Mr.Manigold
+ * The purpose of this class
+ */
+public class Car 
+{
+	private int mpg;		//create instance variables
+	private int fuelLevel;
+	private int year;
+	private String make;
+		
+	public Car(int theMPG,String theMake, int theYear )		//parameterized constructor
+	{
+		mpg = theMPG;
+		fuelLevel = 0;
+		year = theYear;
+		make = theMake;
+		
+	}
+	//mutator method to change the state of the car
+	public void addGas(int gallons)
+	{
+		fuelLevel = fuelLevel + gallons;
+	}
+	//accessor method to get the state of the object
+	public int getFuelLevel()
+	{
+		return fuelLevel;
+	}
+	//mutator
+	public void drive(int miles)
+	{
+		fuelLevel = fuelLevel - (miles/mpg);
+	}
+	//accessor modifier
+	public String getMake()
+	{
+		return make;
+	}
+	//accessor
+	public int getYear()
+	{
+		return year;
+	}
+	public String toString()
+	{
+		return "Year: " + year + "\tMake: " + make + "\tMPG " + mpg + "\tFuel Level: " + fuelLevel + "gallons in the tank. ";
+	}
+}
