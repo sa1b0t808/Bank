@@ -1,0 +1,63 @@
+import javax.swing.JOptionPane;
+//Uses JOptionPane instead of Scanner
+public class BankTest {
+
+	public static void main(String[] args) 
+	{
+		//Make Mom's Savings Object
+		//Bank momSavings = new Bank(1000.0);
+		
+		//Deposit 200 dollars
+		//momSavings.depositFunds(200);
+		//System.out.println("Current Balance = " + momSavings.getBalance());
+		//Withdraw 500 Dollars from account
+		//momSavings.withdrawFunds(500);
+		//System.out.println("Current Balance = " + momSavings.getBalance());
+		//Add Interest to Bank Account
+		//momSavings.addInterest(10); // 10% interest
+		//System.out.println("Current Balance = " + momSavings.getBalance());
+		
+		//User Input 
+		String input = "";
+		//Asks Balance and Printing it out
+		input = JOptionPane.showInputDialog("Insert your balance");
+		double balanceInput = Double.parseDouble(input);
+		
+		//boolean that starts and stops the program
+		boolean run = true;
+		//Object naming in Test
+		Bank momSavings = new Bank(balanceInput);
+		
+		while(run)
+		{
+			System.out.println("The balance is: " + momSavings.getBalance() + " $ ");
+			
+			// Put money into balance
+			input = JOptionPane.showInputDialog("Insert your deposit");
+			double depositInput = Double.parseDouble(input);
+			momSavings.depositFunds(depositInput);
+			System.out.println("The balance is: " + momSavings.getBalance() + " $ ");
+			
+			//Money that will be taken out
+			input = JOptionPane.showInputDialog("Insert your withdraw");
+			double withdrawInput = Double.parseDouble(input);
+			momSavings.withdrawFunds(withdrawInput);
+			System.out.println("The balance is: " + momSavings.getBalance() + " $ ");
+			
+			//the interest that the bank account increases the balance by
+			input = JOptionPane.showInputDialog("Insert the Interest");
+			double interestInput = Double.parseDouble(input);
+			momSavings.addInterest(interestInput);
+			System.out.println("The balance is: " + momSavings.getBalance() + " $ ");
+			
+			//Asks user and ends if answer is Yes
+			input = JOptionPane.showInputDialog("Finished?");
+			if(input.equalsIgnoreCase("Yes"))
+			{
+				run = false;
+				System.out.println("Bye!");
+			}
+		}
+	}
+
+}
